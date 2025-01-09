@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.diacritic-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.diacritic-buttons__group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.diacritic-buttons__label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    align-self: flex-end;
+    transform: translateY(-4px);
+}
+
+.diacritic-buttons__button--pahilis,
+.diacritic-buttons__button--paiwa,
+.diacritic-buttons__button--pakupya,
+.diacritic-buttons__button--enye,
+.diacritic-buttons__button--underline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.diacritic-buttons__button--pahilis:hover,
+.diacritic-buttons__button--paiwa:hover,
+.diacritic-buttons__button--pakupya:hover,
+.diacritic-buttons__button--enye:hover,
+.diacritic-buttons__button--underline:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
