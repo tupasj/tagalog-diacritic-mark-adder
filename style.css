@@ -1,31 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
 }
 
 .diacritic-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 24%;
+  margin-left: 24%;
 }
 
 .diacritic-buttons__group {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .diacritic-buttons__label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    align-self: flex-end;
-    transform: translateY(-4px);
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  align-self: flex-end;
+  transform: translateY(-4px);
 }
 
 .diacritic-buttons__button--pahilis,
@@ -33,20 +32,20 @@ body {
 .diacritic-buttons__button--pakupya,
 .diacritic-buttons__button--enye,
 .diacritic-buttons__button--underline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .diacritic-buttons__button--pahilis:hover,
@@ -54,5 +53,92 @@ body {
 .diacritic-buttons__button--pakupya:hover,
 .diacritic-buttons__button--enye:hover,
 .diacritic-buttons__button--underline:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Input boxes */
+
+#user-input {
+  width: 99%;
+  height: 150px;
+  font-size: 16px;
+  resize: none;
+  border: 1px solid black;
+}
+
+h1 {
+  text-align: center;
+  display: block;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.input-field {
+  /* flex: 1; */
+  margin-top: 22px;
+  margin-bottom: 22px;
+  margin-right: 25%;
+  margin-left: 25%;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.unformatted-text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.unformatted-text-span {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.fa-xmark {
+  color: #595959;
+}
+
+.fa-xmark:hover {
+  color: #0d0d0d;
+  cursor: pointer;
+}
+
+.container__input-field-icons {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  margin-right: 4px;
+  visibility: hidden;
+  transition: visibility 0.3s ease-in-out;
+  /* Added transition for smooth visibility change */
+}
+
+/* Tooltip container hover effect (unchanged) */
+.tooltip-container:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* New styles for copy text functionality */
+.tooltiptext.copied {
+  color: green;
+  /* Change text color to green on copy */
+}
+
+.copy-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.copy-icon:hover {
+  color: #007bff;
 }
