@@ -14,6 +14,13 @@ document.getElementById("user-input").addEventListener("keyup", () => {
     saveSelection();
 });
 
+document.getElementById("user-input").addEventListener("paste", function (event) {
+    event.preventDefault(); // Prevent default pasting behavior
+
+    const text = (event.clipboardData || window.clipboardData).getData("text"); // Get plain text
+    document.execCommand("insertText", false, text); // Insert as unformatted text
+});
+
 function saveSelection() {
     const selection = window.getSelection();
     if (selection.rangeCount > 0) {
