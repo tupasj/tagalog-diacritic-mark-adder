@@ -75,6 +75,17 @@ h1 {
   font-size: 32px;
 }
 
+.buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.tooltip-container {
+  display: flex;
+  gap: 12px;
+}
+
 .input-field {
   /* flex: 1; */
   margin-top: 22px;
@@ -123,15 +134,27 @@ h1 {
   /* Added transition for smooth visibility change */
 }
 
+.tooltiptext-cut {
+  margin-right: 4px;
+  visibility: hidden;
+  transition: visibility 0.3s ease-in-out;  /* Added transition for smooth visibility change */
+}
+
 /* Tooltip container hover effect (unchanged) */
-.tooltip-container:hover .tooltiptext {
+.copy-button-wrapper:hover .tooltiptext {
   visibility: visible;
 }
 
+.cut-button-wrapper:hover .tooltiptext-cut {
+  visibility: visible;
+}
 /* New styles for copy text functionality */
 .tooltiptext.copied {
+  color: green; /* Change text color to green on copy */
+}
+
+.tooltiptext-cut.cut {
   color: green;
-  /* Change text color to green on copy */
 }
 
 .copy-icon {
@@ -140,5 +163,14 @@ h1 {
 }
 
 .copy-icon:hover {
+  color: #007bff;
+}
+
+.cut-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.cut-icon:hover {
   color: #007bff;
 }

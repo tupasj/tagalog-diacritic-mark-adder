@@ -2,6 +2,8 @@ const unformattedTextArea = document.getElementById("user-input");
 const xIcon = document.querySelector(".fa-xmark");
 const copyIcon = document.querySelector(".copy-icon");
 const copyTextTooltip = document.querySelector(".tooltiptext");
+const cutIcon = document.querySelector(".cut-icon");
+const cutTextTooltip = document.querySelector(".tooltiptext-cut");
 
 let lastSelection = null; // Store last selection range
 
@@ -124,5 +126,27 @@ copyIcon.addEventListener("click", () => {
     setTimeout(() => {
         copyTextTooltip.textContent = "Copy text";
         copyTextTooltip.classList.remove("copied");
+    }, 3000);
+});
+
+cutIcon.addEventListener("click", () => {
+    const range = document.createRange();
+    range.selectNodeContents(unformattedTextArea);
+
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    document.execCommand("cut");
+    
+    selection.removeAllRanges();
+    
+    cutTextTooltip.textContent = "Text cut!";
+    cutTextTooltip.classList.add("cut");
+    unformattedTextArea.value = "";
+
+    setTimeout(() => {
+        cutTextTooltip.textContent = "Cut text";
+        cutTextTooltip.classList.remove("cut");
     }, 3000);
 });
