@@ -130,21 +130,41 @@ copyIcon.addEventListener("click", () => {
 });
 
 cutIcon.addEventListener("click", () => {
-    const range = document.createRange();
-    range.selectNodeContents(unformattedTextArea);
+    // Clone the input and clean up background styles
+    const clone = unformattedTextArea.cloneNode(true);
+    clone.querySelectorAll("*").forEach((el) => {
+        el.style.backgroundColor = "transparent";
+        el.style.background = "none";
+    });
 
+    // Create a hidden off-screen element for the clean cut
+    const hiddenDiv = document.createElement("div");
+    hiddenDiv.style.position = "absolute";
+    hiddenDiv.style.left = "-9999px";
+    hiddenDiv.style.whiteSpace = "pre-wrap";
+    hiddenDiv.contentEditable = "true";
+    hiddenDiv.innerHTML = clone.innerHTML;
+
+    document.body.appendChild(hiddenDiv);
+
+    // Select content and cut
+    const range = document.createRange();
+    range.selectNodeContents(hiddenDiv);
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
 
     document.execCommand("cut");
-    
     selection.removeAllRanges();
-    
+
+    document.body.removeChild(hiddenDiv);
+
+    // Clear user input area after cut
+    unformattedTextArea.innerHTML = "";
+
+    // Tooltip feedback
     cutTextTooltip.textContent = "Text cut!";
     cutTextTooltip.classList.add("cut");
-    unformattedTextArea.value = "";
-
     setTimeout(() => {
         cutTextTooltip.textContent = "Cut text";
         cutTextTooltip.classList.remove("cut");
